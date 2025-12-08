@@ -13,8 +13,21 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-   ['html'] ,
-   ['allure-playwright']
+    ['html'],
+    ['list'],
+    ['allure-playwright'],
+    ['playwright-html-reporter', {
+      testFolder: 'tests',
+      title: 'OPEN CART HTML Report',
+      project: 'Open Cart',
+      release: '9.87.6',
+      testEnvironment: 'PROD',
+      embedAssets: true,
+      embedAttachments: true,
+      outputFolder: 'playwright-html-report',
+      minifyAssets: true,
+      startServer: false,
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -23,9 +36,9 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless :false,
-    screenshot:'on', 
-    video:'on',
+    headless: true,
+    screenshot: 'on',
+    video: 'on',
     baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
   },
   metadata: {
@@ -36,32 +49,43 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'Google Chrome',
+      use: {
+        channel: 'chrome',
+        viewport: null,
+        launchOptions: {
+          args: ['--start-maximized'],
+          ignoreDefaultArgs: ['--window-size=1280,720']
+        }
+      }
     },
+    /*  {
+       name: 'chromium',
+       use: { ...devices['Desktop Chrome'] },
+     }, */
 
-   /*  {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    /*  {
+       name: 'firefox',
+       use: { ...devices['Desktop Firefox'] },
+     },
+ 
+     {
+       name: 'webkit',
+       use: { ...devices['Desktop Safari'] },
+     }, */
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    }, */
 
-    
 
     /* Test against branded browsers. */
     // {
     //   name: 'Microsoft Edge',
     //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
     // },
-   /*  {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    }, */
+    /*  {
+       name: 'Google Chrome',
+       use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+     }, */
   ],
 
-  
+
 });
