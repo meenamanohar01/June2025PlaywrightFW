@@ -18,7 +18,7 @@ import {test, expect} from "../fixtures/basefixtures"
     await expect(homePage.page).toHaveTitle('My Account');
 }); */
 
-test('verify valid login @login',
+test('verify valid login @login ',
     {
         annotation: [
             { type: 'epic', description: 'EPIC 100 - Design login page for Open Cart App' },
