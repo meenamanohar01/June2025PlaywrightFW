@@ -41,15 +41,20 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     //headless :false,
-     headless: !!process.env.CI,  // false locally, true in CI
+    headless: !!process.env.CI,  // false locally, true in CI
     screenshot:'on', 
     video:'on',
     baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
   },
-  metadata: {
+   metadata: {
     appUsername: 'meena100rav@test.com',
     appPassword: 'test123'
-  },
+  }, 
+  /*   metadata: {
+    appUsername: 'pwtest@nal.com',
+    appPassword: 'test123'
+  }, */
+  
 
   /* Configure projects for major browsers */
   projects: [

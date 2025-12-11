@@ -41,10 +41,14 @@ export default defineConfig({
     video:'on',
     baseURL: 'https://naveenautomationlabs.com/opencart/index.php',
   },
-  metadata: {
+ /*  metadata: {
     appUsername: 'meena.manohar011@test.com',
     appPassword: 'test123'
-  },
+  }, */
+     metadata: {
+    appUsername: 'pwtest@nal.com',
+    appPassword: 'test123'
+  }, 
 
   /* Configure projects for major browsers */
   projects: [

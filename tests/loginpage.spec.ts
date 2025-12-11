@@ -25,7 +25,7 @@ test('verify valid login @login ',
             { type: 'feature', description: 'Login Page Feature' },
             { type: 'story', description: 'US 50 - user can login to app' },
             { type: 'severity', description: 'Blocker' },
-            { type: 'owner', description: 'Naveen Khunteta'}
+            { type: 'owner', description: 'Meena Manohar'}
         ]
     }
     , async ({ homePage }) => {
