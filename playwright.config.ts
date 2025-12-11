@@ -48,7 +48,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
+    /* {
       name: 'Google Chrome',
       use: {
         channel: 'chrome',
@@ -58,7 +58,7 @@ export default defineConfig({
           ignoreDefaultArgs: ['--window-size=1280,720']
         }
       }
-    },
+    }, */
     /*  {
        name: 'chromium',
        use: { ...devices['Desktop Chrome'] },
@@ -77,14 +77,14 @@ export default defineConfig({
 
 
     /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    /*  {
+     {
+       name: 'Microsoft Edge',
+       use: { ...devices['Desktop Edge'], channel: 'msedge' },
+    },
+     /*  {
        name: 'Google Chrome',
        use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-     }, */
+     },  */
   ],
 
 

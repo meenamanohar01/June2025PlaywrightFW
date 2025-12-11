@@ -16,6 +16,7 @@ export class LoginPage {
   private readonly password: Locator;
   private readonly loginBtn: Locator;
   private readonly warningMsg: Locator;
+  private readonly warningMsgInvalidAttemptsExceed: Locator;
   private readonly registerlink: Locator;
 
 
@@ -29,6 +30,8 @@ export class LoginPage {
     this.password = page.getByRole('textbox', { name: 'Password' });
     this.loginBtn = page.getByRole('button', { name: 'Login' });
     this.warningMsg = page.getByText('Warning: No match for E-Mail Address and/or Password.', { exact: true });
+    //this.warningMsgInvalidAttemptsExceed=page.locator(`#account-login > div.alert`);
+    this.warningMsgInvalidAttemptsExceed= page.getByText('Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.', { exact: true });
     this.registerlink = page.getByText('Register', { exact: true });
   }
 
@@ -70,12 +73,25 @@ export class LoginPage {
   /**
    * 
    * @returns getText() returns the error message when user enters incorrect username & password
+   * getText() returns the warning message for Account locked due to repeated failures
    */
   async getInvalidLoginMsg(): Promise<string | null> {
-    const errorMsg = await this.elementUtil.getText(this.warningMsg);
+    if(await this.elementUtil.isVisible(this.warningMsg)){
+    const errorMsg=  await this.elementUtil.getInnerText(this.warningMsg);
+    console.log('Inavlid Error message'+errorMsg);
+    return errorMsg;
+    }
+   // Account locked due to repeated failures
+    else if(await this.elementUtil.isVisible(this.warningMsgInvalidAttemptsExceed)){
+    const warningMsgAttemptsExceeded= await this.elementUtil.getInnerText(this.warningMsgInvalidAttemptsExceed);
+    console.log("Warning message for invalid attempts exceed" +warningMsgAttemptsExceeded);
+    return warningMsgAttemptsExceeded;
+    }
+   /*  const errorMsg = await this.elementUtil.getText(this.warningMsg);
     console.log("Invalid error message" + errorMsg);
     return errorMsg;
-
+ */
+   return null;   //return null; // no message for undefined
   }
 
    async navigateToRegisterPage(): Promise<RegisterPage> {  //Return the landing page in Promise as well 
