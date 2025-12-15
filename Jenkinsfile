@@ -487,7 +487,7 @@ ${env.PROD_EMOJI} PROD: ${env.PROD_TEST_STATUS}
                         mimeType: 'text/html',
                         to: env.EMAIL_RECIPIENTS,
                         from: 'CI Notifications <mail@naveenautomationlabs.com>',
-                        replyTo: 'mallammahr05@gmail.com'
+                        replyTo: 'meena.manohar01@gmail.com'
                     )
                 } catch (Exception e) {
                     echo "Email notification failed: ${e.message}"
@@ -515,8 +515,8 @@ ${env.PROD_EMOJI} PROD: ${env.PROD_TEST_STATUS}
                         body: """<!DOCTYPE html><html><head> ... (omitted) ...</html>""",
                         mimeType: 'text/html',
                         to: env.EMAIL_RECIPIENTS,
-                        from: 'CI Notifications <mallammahr05@gmail.com>',
-                        replyTo: 'bodkeshashi12@gmail.com'
+                        from: 'CI Notifications <meena.manohar01@gmail.com>',
+                        replyTo: 'meena100rav@gmail.com'
                     )
                 } catch (Exception e) {
                     echo "Email notification failed: ${e.message}"
