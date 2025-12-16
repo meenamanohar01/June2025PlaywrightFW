@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3383","verify valid login @login","Microsoft Edge","Tue Dec 16 16:21:54 UTC 2025","passed","Tue Dec 16 16:21:57 UTC 2025","","loginpage.spec.ts","",""
+"","2624","verify invalid login","Microsoft Edge","Tue Dec 16 16:21:58 UTC 2025","passed","Tue Dec 16 16:22:00 UTC 2025","","loginpage.spec.ts","",""
